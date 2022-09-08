@@ -1,0 +1,37 @@
+image:
+  repository: tuxmealux/alpine-rtorrent
+  pullPolicy: IfNotPresent
+  tag: latest
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 50000
+        targetPort: 50000
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 6881
+        targetPort: 6881
+  torrentudp:
+    enabled: true
+    ports:
+      torrentudp:
+        enabled: true
+        port: 6881
+        targetPort: 6881
+        protocol: UDP
+
+persistence:
+  session:
+    enabled: true
+    mountPath: "/home/rtorrent/rtorrent/.session"
+
+portal:
+  enabled: true

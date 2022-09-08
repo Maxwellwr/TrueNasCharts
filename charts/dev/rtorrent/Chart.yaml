@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.9.8"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.5.6
+deprecated: false
+description: RTorrent BitTorrent Client
+home: https://github.com/Maxwellwr/TrueNasCharts
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.png
+keywords:
+  - rtorrent
+  - torrrent
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: mmaslich@gmail.com
+    name: Maxwell
+    url: https://github.com/Maxwellwr
+name: rtorrent
+sources:
+  - https://github.com/Maxwellwr/TrueNasCharts/tree/master/charts/dev/rtorrent
+  - https://github.com/rakshasa/rtorrent
+type: application
+version: 11.0.32
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
