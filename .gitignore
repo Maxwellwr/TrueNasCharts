@@ -16,6 +16,7 @@ auto_config.py
 # IDE resources
 .vscode
 .idea
+.devcontainer/
 Gemfile.lock
 .ignore/
 /docs/api/_build/
@@ -41,15 +42,6 @@ tests/test-report.txt
 tests/test-report.xml
 private_values.yaml
 temp/
-charts/library/common-test/charts/
+library/common-test/charts/
 .cr-release-packages/
-Chart.lock
-charts/**/charts/*.tgz
-charts/**/render/*
-catalog/
-dh_catalog/
-chartsrepo/
-.cr-index/
-website/
-pub/
-readme.md
+library/common-test/chart.lock

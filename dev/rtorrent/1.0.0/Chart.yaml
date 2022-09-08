@@ -5,23 +5,23 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.5.6
 deprecated: false
-description: RTorrent BitTorrent Client
+description: rTorrent Docker Image
 home: https://github.com/Maxwellwr/TrueNasCharts
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.png
+icon: https://rtorrent-docs.readthedocs.io/en/latest/_static/logo.png
 keywords:
   - rtorrent
   - torrrent
 kubeVersion: ">=1.16.0-0"
 maintainers:
-  - email: mmaslich@gmail.com
+  - email: info@truecharts.org
     name: Maxwell
-    url: https://github.com/Maxwellwr
+    url: https://truecharts.org
 name: rtorrent
 sources:
-  - https://github.com/Maxwellwr/TrueNasCharts/tree/master/charts/dev/rtorrent
+  - https://github.com/Maxwellwr/TrueNasCharts/tree/dev/charts/dev/rtorrent
   - https://github.com/rakshasa/rtorrent
 type: application
-version: 11.0.32
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - media

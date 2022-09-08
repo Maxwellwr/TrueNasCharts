@@ -29,7 +29,7 @@ service:
         protocol: UDP
 
 persistence:
-  session:
+  config:
     enabled: true
     mountPath: "/home/rtorrent/rtorrent/.session"
 
