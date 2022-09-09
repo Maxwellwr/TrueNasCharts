@@ -742,8 +742,8 @@ questions:
                   additional_attrs: true
                   type: dict
                   attrs:
-                    - variable: main
-                      label: "Main Service Port Configuration"
+                    - variable: xmlrpc
+                      label: "XML RPC Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -772,7 +772,7 @@ questions:
                                   label: Port Type
                                   schema:
                                     type: string
-                                    default: TCP
+                                    default: HTTP
                                     enum:
                                       - value: HTTP
                                         description: HTTP
