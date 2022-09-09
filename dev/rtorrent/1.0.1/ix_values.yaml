@@ -27,6 +27,13 @@ service:
         port: 6881
         targetPort: 6881
         protocol: UDP
+  xmlrpc:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 16891
+        targetPort: 16891
 
 persistence:
   config:
