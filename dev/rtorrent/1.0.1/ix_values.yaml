@@ -30,7 +30,7 @@ service:
   xmlrpc:
     enabled: true
     ports:
-      torrent:
+      xmlrpc:
         enabled: true
         port: 16891
         targetPort: 16891
