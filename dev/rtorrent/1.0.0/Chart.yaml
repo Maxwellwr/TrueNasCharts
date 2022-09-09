@@ -21,7 +21,7 @@ sources:
   - https://github.com/Maxwellwr/TrueNasCharts/tree/dev/charts/dev/rtorrent
   - https://github.com/rakshasa/rtorrent
 type: application
-version: 1.0.0
+version: 1.0.1
 annotations:
   truecharts.org/catagories: |
     - media
