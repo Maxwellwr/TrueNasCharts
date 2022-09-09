@@ -25,16 +25,6 @@ groups:
     description: Addon Configuration
   - name: Advanced
     description: Advanced Configuration
-  - name: Documentation
-    description: Documentation
-portals:
-  open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
 questions:
   - variable: global
     label: Global Settings
@@ -673,6 +663,139 @@ questions:
                                   schema:
                                     type: int
                                     default: 6881
+        - variable: xmlrpc
+          label: "XML RPC"
+          description: "XML RPC"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable the Service
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: type
+                label: Service Type
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: ClusterIP
+                  enum:
+                    - value: Simple
+                      description: Simple
+                    - value: ClusterIP
+                      description: ClusterIP
+                    - value: NodePort
+                      description: NodePort (Advanced)
+                    - value: LoadBalancer
+                      description: LoadBalancer (Advanced)
+              - variable: loadBalancerIP
+                label: LoadBalancer IP
+                description: LoadBalancerIP
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: External IP
+                      schema:
+                        type: string
+              - variable: ipFamilyPolicy
+                label: IP Family Policy
+                description: (Advanced) Specify the IP Policy
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: string
+                  default: SingleStack
+                  enum:
+                    - value: SingleStack
+                      description: SingleStack
+                    - value: PreferDualStack
+                      description: PreferDualStack
+                    - value: RequireDualStack
+                      description: RequireDualStack
+              - variable: ipFamilies
+                label: (Advanced) IP Families
+                description: (Advanced) The IP Families that should be used
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipFamily
+                      label: IP Family
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 16891
+                              required: true
+                          - variable: advanced
+                            label: Show Advanced Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: enabled
+                                  label: Enable the Port
+                                  schema:
+                                    type: boolean
+                                    hidden: true
+                                    default: true
+                                - variable: protocol
+                                  label: Port Type
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: HTTP
+                                      - value: HTTPS
+                                        description: HTTPS
+                                      - value: TCP
+                                        description: TCP
+                                      - value: UDP
+                                        description: UDP
+                                - variable: nodePort
+                                  label: Node Port (Optional)
+                                  description: This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 16891
+
   - variable: serviceexpert
     group: Networking and Services
     label: Show Expert Config
@@ -2721,28 +2844,3 @@ questions:
                                   schema:
                                     type: string
                                     required: true
-  - variable: docs
-    group: Documentation
-    label: "Please read the documentation at https://truecharts.org"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: confirmDocs
-          label: I have checked the documentation
-          schema:
-            type: boolean
-            default: true
-  - variable: donateNag
-    group: Documentation
-    label: "Please consider supporting TrueCharts, see: https://truecharts.org/docs/about/sponsor"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: confirmDonate
-          label: I have considered donating
-          schema:
-            type: boolean
-            default: true
-            hidden: true

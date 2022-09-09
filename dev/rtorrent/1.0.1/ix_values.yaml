@@ -32,6 +32,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/home/rtorrent/rtorrent/.session"
-
-portal:
-  enabled: true
