@@ -1,7 +1,7 @@
 image:
-  repository: tuxmealux/alpine-rtorrent
+  repository: ghcr.io/crazy-max/rtorrent-rutorrent
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 3.10-0.9.8-0.13.8
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -10,19 +10,26 @@ service:
   main:
     ports:
       main:
-        port: 50000
-        targetPort: 50000
+        port: 8080
+        targetPort: 8080
   torrent:
     enabled: true
     ports:
       torrent:
         enabled: true
-        port: 6881
-        targetPort: 6881
-  torrentudp:
+        port: 50000
+        targetPort: 50000
+  dht:
     enabled: true
     ports:
-      torrentudp:
+      dht:
+        enabled: true
+        port: 6881
+        targetPort: 6881
+  dhtudp:
+    enabled: true
+    ports:
+      dhtudp:
         enabled: true
         port: 6881
         targetPort: 6881
@@ -32,10 +39,23 @@ service:
     ports:
       xmlrpc:
         enabled: true
-        port: 16891
-        targetPort: 16891
+        port: 8000
+        targetPort: 8000
+  webdav:
+    enabled: true
+    ports:
+      webdav:
+        enabled: true
+        port: 9000
+        targetPort: 9000
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/home/rtorrent/rtorrent/.session"
+    mountPath: "/data"
+  downloads:
+    enabled: true
+    mountPath: "/downloads"
+  password:
+    enabled: true
+    mountPath: "/passwd"
