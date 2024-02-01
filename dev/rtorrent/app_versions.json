@@ -87,6 +87,10 @@
                     "description": "Persist and Share Data that is Separate from the Container"
                 },
                 {
+                    "name": "Ingress",
+                    "description": "Ingress Configuration"
+                },
+                {
                     "name": "Security and Permissions",
                     "description": "Configure Security Context and Permissions"
                 },
@@ -95,8 +99,24 @@
                     "description": "Specify Resources/Devices to be Allocated to Workload"
                 },
                 {
+                    "name": "Middlewares",
+                    "description": "Traefik Middlewares"
+                },
+                {
+                    "name": "Metrics",
+                    "description": "Metrics"
+                },
+                {
+                    "name": "Addons",
+                    "description": "Addon Configuration"
+                },
+                {
                     "name": "Advanced",
                     "description": "Advanced Configuration"
+                },
+                {
+                    "name": "Postgresql",
+                    "description": "Postgresql"
                 },
                 {
                     "name": "Documentation",
