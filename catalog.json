@@ -1,0 +1,38 @@
+{
+    "charts": {},
+    "test": {},
+    "dev": {
+        "rtorrent": {
+            "app_readme": "<p>qBittorrent is a cross-platform free and open-source BitTorrent client</p>",
+            "categories": [
+                "media"
+            ],
+            "description": "qBittorrent is a cross-platform free and open-source BitTorrent client",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://github.com/Maxwellwr/TrueNasCharts",
+            "location": "/home/runner/work/catalog/catalog/dev/dsmr-reader",
+            "latest_version": "1.0.2",
+            "latest_app_version": "4.2.9-0.9.8_2-0.13.8_2",
+            "latest_human_version": "4.2.9-0.9.8_2-0.13.8_2",
+            "last_update": "2024-02-01 18:20:19",
+            "name": "rtorrent",
+            "recommended": false,
+            "title": "rTorrent",
+            "maintainers": [
+                {
+                    "name": "Maxwell",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [
+                "https://github.com/Maxwellwr/TrueNasCharts/tree/dev/charts/dev/rtorrent",
+                "https://github.com/rakshasa/rtorrent"
+            ],
+            "icon_url": "https://rtorrent-docs.readthedocs.io/en/latest/_static/logo.png"
+        }
+    }
+}
