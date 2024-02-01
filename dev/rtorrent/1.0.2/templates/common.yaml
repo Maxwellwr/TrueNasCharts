@@ -7,6 +7,11 @@
 {{- $_ := set .Values.workload.main.podSpec.containers.main.probes.readiness "scheme" $protocol -}}
 {{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "scheme" $protocol -}}
 {{- $_ := set .Values.service.main.ports.main "protocol" $protocol -}}
+{{- $_ := set .Values.service.torrent.ports.torrent "protocol" "tcp" -}}
+{{- $_ := set .Values.service.dht.ports.dht "protocol" "tcp" -}}
+{{- $_ := set .Values.service.dhtudp.ports.dhtudp "protocol" "udp" -}}
+{{- $_ := set .Values.service.xmlrpc.ports.xmlrpc "protocol" "http" -}}
+{{- $_ := set .Values.service.webdav.ports.webdav "protocol" "http -}}
 
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}
