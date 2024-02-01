@@ -1,5 +1,5 @@
-{{/* Render the templates */}}
-
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
 
 {{- $protocol := "http" -}}
 
@@ -8,4 +8,5 @@
 {{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "scheme" $protocol -}}
 {{- $_ := set .Values.service.main.ports.main "protocol" $protocol -}}
 
-{{ include "tc.v1.common.loader.all" . }}
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}
