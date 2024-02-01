@@ -1,2 +1,9 @@
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.all" . }}
+
+{{- $protocol := "http" -}}
+
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.liveness "scheme" $protocol -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.readiness "scheme" $protocol -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "scheme" $protocol -}}
+{{- $_ := set .Values.service.main.ports.main "protocol" $protocol -}}
